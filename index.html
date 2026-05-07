@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Your Plan Built | Real Talk Uncle Clint</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0B0F0E;
+  --surface: #111714;
+  --accent: #4ECBA5;
+  --text: #EEF0EE;
+  --muted: #5A6360;
+  --border: rgba(255,255,255,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(78,203,165,0.15), transparent);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: pulse 6s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
+  100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 3rem 0 4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue';
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue';
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero .tagline {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FORM SECTIONS */
+.form-container {
+  margin-top: 3rem;
+}
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.section-number {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.section h2 {
+  font-family: 'Bebas Neue';
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.section p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(78, 203, 165, 0.1);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.checkbox-item:hover {
+  border-color: var(--accent);
+  background: rgba(78, 203, 165, 0.05);
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.75rem;
+}
+
+.range-slider {
+  margin-top: 1rem;
+}
+
+.range-slider input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  outline: none;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* PREVIEW SECTION */
+.preview-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.preview-section h3 {
+  font-family: 'Bebas Neue';
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.preview-demo {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.demo-input {
+  width: 100%;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.demo-btn {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'Bebas Neue';
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 203, 165, 0.4);
+}
+
+.demo-output {
+  margin-top: 1.5rem;
+  white-space: pre-line;
+  line-height: 1.6;
+  color: var(--text);
+  min-height: 100px;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* SUBMIT SECTION */
+.submit-section {
+  background: linear-gradient(135deg, var(--surface), rgba(78, 203, 165, 0.1));
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.submit-btn {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 1.25rem 3rem;
+  border-radius: 8px;
+  font-family: 'Bebas Neue';
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(78, 203, 165, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(78, 203, 165, 0.5);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* SUCCESS MESSAGE */
+.success-message {
+  background: linear-gradient(135deg, var(--accent), #2d8a6b);
+  color: #000;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 2rem;
+  display: none;
+}
+
+.success-message h3 {
+  font-family: 'Bebas Neue';
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* FLASH ANIMATION */
+@keyframes flashBtn {
+  0% { 
+    background-color: var(--accent);
+    transform: scale(1);
+  }
+  50% { 
+    background-color: #ffffff;
+    color: #000;
+    transform: scale(1.05);
+  }
+  100% { 
+    background-color: var(--accent);
+    color: #000;
+    transform: scale(1);
+  }
+}
+
+@keyframes flashBorder {
+  0% { border-color: var(--accent); box-shadow: 0 0 0 0 rgba(78, 203, 165, 0.4); }
+  50% { border-color: #ffffff; box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.2); }
+  100% { border-color: var(--accent); box-shadow: 0 0 0 0 rgba(78, 203, 165, 0.4); }
+}
+
+@keyframes flashSuccess {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.flash-btn {
+  animation: flashBtn 0.6s ease-in-out !important;
+}
+
+.flash-border {
+  animation: flashBorder 0.5s ease-in-out !important;
+}
+
+.flash-success {
+  animation: flashSuccess 0.4s ease-in-out !important;
+}
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<div class="container">
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="brand">
+      <div class="avatar">UC</div>
+      <div>
+        <h3 style="font-family: 'Bebas Neue'; margin: 0;">Real Talk Uncle Clint</h3>
+        <p style="color: var(--muted); margin: 0; font-size: 0.9rem;">@realtalkuncleclint</p>
+      </div>
+    </div>
+    
+    <div class="tagline">Free • No Catch • Real Talk Only</div>
+    
+    <h1>TELL ME WHERE YOU WANT TO GO.</h1>
+    
+    <p>Fill this out honestly and I'll build you something specific to your situation. A clear plan, the right tools, and everything you need to actually move. No generic advice. Real talk.</p>
+  </div>
+
+  <!-- PREVIEW SECTION -->
+  <div class="preview-section">
+    <h3>See What Your Plan Could Look Like</h3>
+    <p style="color: var(--muted); margin-bottom: 1.5rem;">Try this demo to get a taste of the real talk approach:</p>
+    
+    <div class="preview-demo">
+      <textarea id="demoInput" class="demo-input" placeholder="Describe your situation... (e.g., 'I work full-time but want to start freelancing')"></textarea>
+      <button class="demo-btn" onclick="generateDemo()">Show My Plan Preview</button>
+      <div id="demoOutput" class="demo-output"></div>
+    </div>
+    
+    <p style="color: var(--muted); font-size: 0.9rem; margin-top: 1rem;">This is just a preview. Your real plan will be custom-built based on your complete intake below.</p>
+  </div>
+
+  <!-- FORM CONTAINER -->
+  <form class="form-container" id="intakeForm">
+    
+    <!-- SECTION 1: ABOUT YOU -->
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>About You</h2>
+      <p>Let's start with the basics. No judgment here.</p>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="currentWork">What you do</label>
+          <input type="text" id="currentWork" name="currentWork" placeholder="Job, side hustle, stay-at-home parent, whatever's true" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="currentIncome">Current income range (optional)</label>
+          <select id="currentIncome" name="currentIncome">
+            <option value="">Prefer not to say</option>
+            <option value="under25k">Under $25K</option>
+            <option value="25k-50k">$25K - $50K</option>
+            <option value="50k-75k">$50K - $75K</option>
+            <option value="75k-100k">$75K - $100K</option>
+            <option value="100k-150k">$100K - $150K</option>
+            <option value="150k-200k">$150K - $200K</option>
+            <option value="200k-300k">$200K - $300K</option>
+            <option value="300k+">$300K+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="workSchedule">Current work schedule</label>
+          <select id="workSchedule" name="workSchedule">
+            <option value="">Choose one...</option>
+            <option value="standard">Standard 9-5</option>
+            <option value="flexible">Flexible hours</option>
+            <option value="remote">Fully remote</option>
+            <option value="shift">Shift work</option>
+            <option value="freelance">Freelance/contract</option>
+            <option value="business-owner">Business owner</option>
+            <option value="student">Student</option>
+            <option value="unemployed">Between jobs</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="currentLocation">Currently in</label>
+          <input type="text" id="currentLocation" name="currentLocation" placeholder="City, State/Province">
+        </div>
+        <div class="form-group">
+          <label for="targetLocation">Want to be / doing</label>
+          <input type="text" id="targetLocation" name="targetLocation" placeholder="Could be the same city. Could be a different country entirely.">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="familySituation">Family situation</label>
+        <select id="familySituation" name="familySituation">
+          <option value="">Choose what fits...</option>
+          <option value="single">Single, no kids</option>
+          <option value="single-kids">Single with kids</option>
+          <option value="married-no-kids">Married, no kids</option>
+          <option value="married-kids">Married with kids</option>
+          <option value="relationship">In a relationship</option>
+          <option value="complicated">It's complicated</option>
+          <option value="prefer-not-say">Prefer not to say</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 2: THE GOAL -->
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>The Goal</h2>
+      <p>What's the one thing you most want to change or achieve?</p>
+      
+      <div class="form-group">
+        <label for="mainGoal">Be specific. "More money" is less useful than "replace my salary with freelance work by September."</label>
+        <textarea id="mainGoal" name="mainGoal" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="changeType">What kind of change is this?</label>
+        <select id="changeType" name="changeType" required>
+          <option value="">Choose one...</option>
+          <option value="career">Career change</option>
+          <option value="location">Location move</option>
+          <option value="income">Income increase</option>
+          <option value="business">Start a business</option>
+          <option value="lifestyle">Lifestyle change</option>
+          <option value="relationship">Relationship goal</option>
+          <option value="health">Health & fitness</option>
+          <option value="education">Learning & skills</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="timeline">When do you need this to happen?</label>
+        <select id="timeline" name="timeline" required>
+          <option value="">Choose timeline...</option>
+          <option value="asap">ASAP (next 30 days)</option>
+          <option value="3months">Next 3 months</option>
+          <option value="6months">Next 6 months</option>
+          <option value="1year">Within a year</option>
+          <option value="2years">1-2 years</option>
+          <option value="longterm">Long-term (2+ years)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 3: YOUR SITUATION -->
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Your Situation</h2>
+      <p>Let's figure out what's really standing in your way.</p>
+      
+      <div class="form-group">
+        <label>What's standing between you and this right now? (Select all that apply)</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="money">
+            Money/funding
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="time">
+            Not enough time
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="skills">
+            Missing skills
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="connections">
+            No connections
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="confidence">
+            Confidence/fear
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="family">
+            Family obligations
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="location">
+            Current location
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="obstacles" value="unclear">
+            Don't know where to start
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="previousAttempts">Have you tried to make this happen before? What stopped you?</label>
+        <textarea id="previousAttempts" name="previousAttempts" placeholder='"I\'ve thought about it but never started" is a perfectly honest answer.'></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="urgency">How urgent does this feel right now?</label>
+        <div class="range-slider">
+          <input type="range" id="urgency" name="urgency" min="1" max="5" value="3">
+          <div class="range-labels">
+            <span>No rush</span>
+            <span>It's everything right now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: WHAT YOU'VE GOT -->
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>What You've Got</h2>
+      <p>Let's inventory your strengths and resources.</p>
+      
+      <div class="form-group">
+        <label>What do you already have going for you? (Select all that apply)</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="stable-income">
+            Stable income
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="savings">
+            Some savings
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="skills">
+            Marketable skills
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="network">
+            Good network
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="experience">
+            Relevant experience
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="support">
+            Family support
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="flexibility">
+            Schedule flexibility
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="motivation">
+            High motivation
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="targetAmount">Target amount (optional)</label>
+          <input type="text" id="targetAmount" name="targetAmount" placeholder="What you need to save, earn, or have">
+        </div>
+        <div class="form-group">
+          <label for="targetDate">By when (optional)</label>
+          <input type="text" id="targetDate" name="targetDate" placeholder="Target date or timeline">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: THE REAL TALK -->
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>The Real Talk</h2>
+      <p>This is where we get specific to YOU.</p>
+      
+      <div class="form-group">
+        <label for="hiddenContext">What's something about your situation most people don't know but that matters?</label>
+        <textarea id="hiddenContext" name="hiddenContext" placeholder="This is the question that turns a generic plan into something built for you. Don't skip it." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="decisionStyle">How do you make big decisions?</label>
+        <select id="decisionStyle" name="decisionStyle">
+          <option value="">Choose what sounds like you...</option>
+          <option value="research-heavy">I research everything to death first</option>
+          <option value="gut-instinct">I go with my gut pretty quickly</option>
+          <option value="pros-cons">I make lists of pros and cons</option>
+          <option value="seek-advice">I ask everyone for their opinion</option>
+          <option value="analyze-paralysis">I overthink and then do nothing</option>
+          <option value="just-do-it">I usually just jump in and figure it out</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="learningStyle">When you need to learn something new, what works best?</label>
+        <select id="learningStyle" name="learningStyle">
+          <option value="">Choose your preference...</option>
+          <option value="step-by-step">Clear step-by-step instructions</option>
+          <option value="examples">Real examples and case studies</option>
+          <option value="videos">Video tutorials and demos</option>
+          <option value="hands-on">Jump in and learn by doing</option>
+          <option value="reading">Articles and written guides</option>
+          <option value="community">Discussion and peer learning</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="workingStyle">What's your ideal working style?</label>
+        <select id="workingStyle" name="workingStyle">
+          <option value="">Choose what appeals to you...</option>
+          <option value="structured">Highly structured with clear deadlines</option>
+          <option value="flexible">Flexible with general milestones</option>
+          <option value="intensive">Intensive bursts with breaks</option>
+          <option value="steady">Steady consistent progress</option>
+          <option value="collaborative">Working with others</option>
+          <option value="independent">Independent and self-directed</option>
+        </select>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contactMethod">Best way for Uncle Clint to reach you when it's ready?</label>
+          <input type="email" id="contactMethod" name="contactMethod" placeholder="Email address" required>
+        </div>
+        <div class="form-group">
+          <label for="preferredContact">How to reach you</label>
+          <select id="preferredContact" name="preferredContact">
+            <option value="email">Email</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="text">Text / SMS</option>
+            <option value="instagram">Instagram DM</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT SECTION -->
+    <div class="submit-section">
+      <h2 style="font-family: 'Bebas Neue'; margin-bottom: 1rem;">Send It to Uncle Clint</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">Your answers go directly to Clint. No spam. No BS.</p>
+      
+      <button type="submit" class="submit-btn" id="submitBtn">
+        SEND MY INTAKE
+      </button>
+      
+      <p style="color: var(--muted); margin-top: 1rem; font-size: 0.9rem;">
+        You'll get your custom plan within 24-48 hours
+      </p>
+    </div>
+  </form>
+
+  <!-- SUCCESS MESSAGE -->
+  <div class="success-message" id="successMessage">
+    <h3>Your Intake is On Its Way!</h3>
+    <p>Uncle Clint will review your situation and build your custom plan within 24-48 hours. Check your email for next steps.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    @realtalkuncleclint • Real Talk. Real Plans. Real Results.
+  </div>
+</div>
+
+<script>
+// DEMO PLAN GENERATOR (CLIENT-SIDE ONLY)
+function generateDemo() {
+  const input = document.getElementById("demoInput").value.toLowerCase();
+  const output = document.getElementById("demoOutput");
+  const btn = document.querySelector('.demo-btn');
+  
+  // Add flash effect to button
+  btn.classList.add('flash-btn');
+  setTimeout(() => btn.classList.remove('flash-btn'), 600);
+  
+  if (!input.trim()) {
+    output.textContent = "Enter your situation above to see a plan preview.";
+    return;
+  }
+  
+  let result = "";
+  
+  if (input.includes("money") || input.includes("broke") || input.includes("income")) {
+    result = `You don't have an income problem. You have a focus problem.
+
+PLAN
+• Pick ONE income path for 30 days
+• Stop researching and start selling  
+• Focus on speed over perfection
+
+FIRST MOVES THIS WEEK
+• Identify one skill you can monetize
+• Offer it to 20 people
+• Close your first deal
+
+REAL TALK
+You're not stuck. You're hesitating.`;
+  }
+  else if (input.includes("job") || input.includes("career") || input.includes("work")) {
+    result = `You're not lost. You're misaligned.
+
+PLAN
+• Stop chasing "safe" options
+• Focus on what actually moves you
+• Accept short-term discomfort
+
+FIRST MOVES THIS WEEK
+• Write down what you hate about your job
+• Choose one alternative path
+• Take action this week
+
+REAL TALK
+You already know what you want.
+You just haven't committed to it.`;
+  }
+  else if (input.includes("business") || input.includes("startup") || input.includes("entrepreneur")) {
+    result = `You're overthinking the launch.
+
+PLAN
+• Start before you're ready
+• Sell before you build
+• Learn from real customers
+
+FIRST MOVES THIS WEEK
+• Validate your idea with 10 people
+• Take pre-orders or commitments
+• Build the minimum viable version
+
+REAL TALK
+Perfect plans don't exist.
+Working plans do.`;
+  }
+  else {
+    result = `You're overthinking this.
+
+PLAN
+• Choose one direction
+• Commit for 14 days
+• Ignore everything else
+
+FIRST MOVES THIS WEEK
+• Take one meaningful action today
+• Repeat daily
+• Track results
+
+REAL TALK
+Clarity comes from movement, not thinking.`;
+  }
+  
+  // Typewriter effect
+  let i = 0;
+  output.textContent = "";
+  
+  function type() {
+    if (i < result.length) {
+      output.textContent += result.charAt(i);
+      i++;
+      setTimeout(type, 15);
+    }
+  }
+  
+  type();
+  
+  // Save to localStorage
+  localStorage.setItem('demoplan', result);
+}
+
+// FORM HANDLING
+document.getElementById('intakeForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.getElementById('submitBtn');
+  const successMessage = document.getElementById('successMessage');
+  
+  // Add flash effect to submit button
+  submitBtn.classList.add('flash-btn');
+  setTimeout(() => submitBtn.classList.remove('flash-btn'), 600);
+  
+  // Disable submit button
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'SENDING...';
+  
+  // Collect form data
+  const formData = new FormData(this);
+  const data = {};
+  
+  // Handle regular form fields
+  for (let [key, value] of formData.entries()) {
+    if (data[key]) {
+      // Handle multiple checkboxes
+      if (Array.isArray(data[key])) {
+        data[key].push(value);
+      } else {
+        data[key] = [data[key], value];
+      }
+    } else {
+      data[key] = value;
+    }
+  }
+  
+  // Save to localStorage for now (you can replace with actual form submission)
+  localStorage.setItem('intakeData', JSON.stringify(data));
+  
+  // Simulate form submission
+  setTimeout(() => {
+    this.style.display = 'none';
+    successMessage.style.display = 'block';
+    
+    // Flash the success message
+    successMessage.classList.add('flash-success');
+    setTimeout(() => successMessage.classList.remove('flash-success'), 400);
+    
+    // Scroll to success message
+    successMessage.scrollIntoView({ behavior: 'smooth' });
+  }, 2000);
+});
+
+// AUTO-SAVE FUNCTIONALITY
+function autoSave() {
+  const form = document.getElementById('intakeForm');
+  const formData = new FormData(form);
+  const data = {};
+  
+  for (let [key, value] of formData.entries()) {
+    data[key] = value;
+  }
+  
+  localStorage.setItem('intakeFormData', JSON.stringify(data));
+}
+
+// Load saved data
+function loadSavedData() {
+  const saved = localStorage.getItem('intakeFormData');
+  if (saved) {
+    const data = JSON.parse(saved);
+    
+    for (let [key, value] of Object.entries(data)) {
+      const field = document.querySelector(`[name="${key}"]`);
+      if (field) {
+        if (field.type === 'checkbox') {
+          field.checked = true;
+        } else {
+          field.value = value;
+        }
+      }
+    }
+  }
+  
+  // Load demo plan if exists
+  const savedDemo = localStorage.getItem('demoplan');
+  if (savedDemo) {
+    document.getElementById('demoOutput').textContent = savedDemo;
+  }
+}
+
+// Auto-save on input changes
+document.addEventListener('DOMContentLoaded', function() {
+  loadSavedData();
+  
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(input => {
+    input.addEventListener('change', autoSave);
+    input.addEventListener('blur', autoSave);
+    
+    // Add flash effect when user interacts with important fields
+    input.addEventListener('focus', function() {
+      if (this.required && !this.value) {
+        const section = this.closest('.section');
+        if (section) {
+          section.classList.add('flash-border');
+          setTimeout(() => section.classList.remove('flash-border'), 300);
+        }
+      }
+    });
+  });
+  
+  // Auto-save every 30 seconds
+  setInterval(autoSave, 30000);
+});
+
+// Range slider value display
+document.getElementById('urgency').addEventListener('input', function() {
+  const value = this.value;
+  const labels = ['No rush', 'Some urgency', 'Moderately urgent', 'Pretty urgent', 'It\'s everything right now'];
+  
+  // You could add a value display here if desired
+});
+</script>
+
+</body>
+</html>
